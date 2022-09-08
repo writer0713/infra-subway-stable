@@ -44,8 +44,45 @@ npm run dev
 
 ### 1단계 - 화면 응답 개선하기
 1. 성능 개선 결과를 공유해주세요 (Smoke, Load, Stress 테스트 결과)
+  - Smoke Test
+    - 기존과 큰 차이 없음
+    - `my`는 오히려 기존보다 살짝 느려짐 (network 속도 차이일듯)
+    - my smoke test
+      ![my smoke test](./result/my_smoke_result.png)
+    - path smoke test
+      ![path smoke test](./result/path_smoke_result.png)
+  - Load Teset
+    - 기존과 큰 차이 없음
+    - `my`는 오히려 기존보다 살짝 느려짐 (network 속도 차이일듯)
+    - my load test
+      ![my smoke test](./result/my_load_result.png)
+    - path load test
+      ![path smoke test](./result/path_load_result.png)
+  - Stress Test
+    - `my` :
+      - 기존 : max `388 vuser` (에러 발생)
+      - 현재 : max `440 vuser` (에러 발생)
+    - `path` :
+      - 기존 : max `55 vuser` (에러 발생)
+      - 현재 : max `180 (+a) vuser` (에러 없음)
+        - 기존에는 `55 vuser`에서 에러가 났었음
+        - 튜닝 후에는 기존 테스트 넉넉하게 성공
+        - vuser 늘려서 `180 vuser`까지 다시 테스트했는데 넉넉히 성공
+          - 테스트 하면 더 높은 `vuser`가 나오겠지만 현재 그럴필요까진 없을듯 하여 패스
+    - `my`는 오히려 기존보다 살짝 느려짐 (network 속도 차이일듯)
+    - my streses test
+      ![my stress test](./result/my_stress_result.png)
+    - path stress test(1)
+      ![path stress test](./result/path_stress_result(1).png)
+    - path stress test(2)
+      ![path stress test](./result/path_stress_result(2).png)
 
 2. 어떤 부분을 개선해보셨나요? 과정을 설명해주세요
+  - nginx 설정
+    - gzip 압축 설정 추가
+    - cache 설정 추가
+    - http2 설정 추가
+  - application - spring data cache 설정 추가
 
 ---
 
