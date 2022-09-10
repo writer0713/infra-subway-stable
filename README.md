@@ -82,7 +82,10 @@ npm run dev
     - gzip 압축 설정 추가
     - cache 설정 추가
     - http2 설정 추가
-  - application - spring data cache 설정 추가
+  - application 
+    - spring data cache 설정 추가
+    - gzip 설정 추가
+    - etag 설정 추가
 
 ---
 
